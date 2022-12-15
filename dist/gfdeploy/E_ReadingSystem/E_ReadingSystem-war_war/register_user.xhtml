@@ -1,0 +1,260 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en"
+    xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+    <title>Register to LightHouse</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            color: #1a1f36;
+            box-sizing: border-box;
+            word-wrap: break-word;
+            font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Ubuntu,sans-serif;
+          }
+          body {
+              min-height: 100%;
+              background-color: #ffffff;
+          }
+          h1 {
+              letter-spacing: -1px;
+          }
+          a {
+            color: #9933ff;
+            text-decoration: unset;
+          }
+          .login-root {
+              background: #fff;
+              display: flex;
+              width: 100%;
+              min-height: 100vh;
+              overflow: hidden;
+          }
+          .loginbackground {
+              min-height: 692px;
+              position: fixed;
+              bottom: 0;
+              left: 0;
+              right: 0;
+              top: 0;
+              z-index: 0;
+              overflow: hidden;
+          }
+          .flex-flex {
+              display: flex;
+          }
+          .align-center {
+            align-items: center; 
+          }
+          .center-center {
+            align-items: center;
+            justify-content: center;
+          }
+          .box-root {
+              box-sizing: border-box;
+          }
+          .flex-direction--column {
+              -ms-flex-direction: column;
+              flex-direction: column;
+          }
+          
+          .box-divider--light-all-2 {
+              box-shadow: inset 0 0 0 2px #e3e8ee;
+          }
+          .box-background--blue {
+              background-color: #5469d4;
+          }
+          .box-background--white {
+            background-color: #ffffff; 
+          }
+          .box-background--blue800 {
+              background-color: #212d63;
+          }
+          .box-background--gray100 {
+              background-color: #e3e8ee;
+          }
+          .box-background--cyan200 {
+              background-color: #7fd3ed;
+          }
+          .padding-top--64 {
+            padding-top: 64px;
+          }
+          .padding-top--24 {
+            padding-top: 24px;
+          }
+          .padding-top--48 {
+            padding-top: 48px;
+          }
+          .padding-bottom--24 {
+            padding-bottom: 24px;
+          }
+          .padding-horizontal--48 {
+            padding: 48px;
+          }
+          .padding-bottom--15 {
+            padding-bottom: 15px;
+          }
+
+
+          .flex-justifyContent--center {
+            -ms-flex-pack: center;
+            justify-content: center;
+          }
+
+          .formbg {
+              margin: 0px auto;
+              width: 100%;
+              max-width: 448px;
+              background: white;
+              border-radius: 4px;
+              box-shadow: rgba(60, 66, 87, 0.12) 0px 7px 14px 0px, rgba(0, 0, 0, 0.12) 0px 3px 6px 0px;
+          }
+          span {
+              display: block;
+              font-size: 20px;
+              line-height: 28px;
+              color: #1a1f36;
+          }
+          label {
+              margin-bottom: 10px;
+          }
+          .reset-pass a,label {
+              font-size: 14px;
+              font-weight: 600;
+              display: block;
+          }
+          .reset-pass > a {
+              text-align: right;
+              margin-bottom: 10px;
+          }
+          .grid--50-50 {
+              display: grid;
+              grid-template-columns: 50% 50%;
+              align-items: center;
+          }
+
+          .field input {
+              font-size: 16px;
+              line-height: 28px;
+              padding: 8px 16px;
+              width: 100%;
+              min-height: 44px;
+              border: unset;
+              border-radius: 4px;
+              outline-color: rgb(84 105 212 / 0.5);
+              background-color: rgb(255, 255, 255);
+              box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                          rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                          rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                          rgba(60, 66, 87, 0.16) 0px 0px 0px 1px, 
+                          rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                          rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                          rgba(0, 0, 0, 0) 0px 0px 0px 0px;
+          }
+
+          input[type="submit"] {
+              width: 100%;
+              background-color: #9933ff;
+              box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                          rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                          rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, 
+                          rgb(84, 105, 212) 0px 0px 0px 1px, 
+                          rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                          rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                          rgba(60, 66, 87, 0.08) 0px 2px 5px 0px;
+              color: #fff;
+              font-weight: 600;
+              cursor: pointer;
+
+          }
+          a.ssolink {
+              display: block;
+              text-align: center;
+              font-weight: 600;
+          }
+          .footer-link span {
+              font-size: 14px;
+              text-align: center;
+          }
+          .listing a {
+              color: #697386;
+              font-weight: 600;
+              margin: 0 10px;
+          }
+          
+    </style>
+    </head>
+
+      <h:body>
+
+
+<div class="login-root">
+    <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1;">
+      <div class="loginbackground box-background--white padding-top--64"></div>
+      <div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">
+        <div class="formbg-outer">
+          <div class="formbg">
+            <div class="formbg-inner padding-horizontal--48">
+                <h1>LightHouse</h1>
+              <span class="padding-bottom--15">Sign in to LightHouse</span>
+              <h:form id="form" class="form-horizontal">  
+                  
+                <div class="field padding-bottom--24">
+                  <label for="username">Username</label>
+                  <h:inputText id="name-id" value="#{user.username}" class="form-control"  validatorMessage="User name is required">  
+                    <f:validateRequired />  
+                  </h:inputText> 
+                </div>
+                  
+                <div class="field padding-bottom--24">    
+                    <label for="password">Password</label>
+                     <h:inputSecret id="password-id" value="#{user.password}" class="form-control" validatorMessage="Password is required">  
+                    <f:validateRequired/>  
+                    </h:inputSecret>  
+                </div>
+                  
+                <div class="field padding-bottom--24">
+                  <label for="email">Email</label>
+                  <h:inputText id="email-id" value="#{user.email}" class="form-control" validatorMessage="Email Id is required">  
+                    <f:validateRequired/>  
+                    </h:inputText>  
+                </div>
+                  
+                <div class="field padding-bottom--24">
+                  <label for="phone">Phone</label>
+                  <h:inputText value="#{user.phone}" id="phone-id"  class="form-control" validatorMessage="Phone is required">  
+                    <f:validateRequired/>  
+                    </h:inputText>  
+                </div>
+                  
+                <div class="field padding-bottom--24">
+                    <h:commandButton value="Save" action="#{user.save()}" class="btn btn-success" style="width: 100%;"></h:commandButton>  
+                </div>
+                  
+                <div class="field">
+                  <a class="ssolink" href="#">Use single sign-on (Google) instead</a>
+                </div>
+                  
+              </h:form>
+            </div>
+          </div>
+            
+          <div class="footer-link padding-top--24">
+            <span>Already have account? <a href="Login.xhtml?faces-redirect=true">Login</a></span>
+            <div class="listing padding-top--24 padding-bottom--24 flex-flex center-center">
+              <span><a href="#">©LightHouse</a></span>
+              <span><a href="#">Contact</a></span>
+              <span><a href="#">Privacy and terms</a></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    </h:body>
+</html>

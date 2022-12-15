@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>  
+        <title>Publish story</title>  
+        <style>
+    input,select,textArea{
+        width:65%;
+        padding:10px;
+        border: 0;
+        box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
+        border-radius: 10px;
+	}
+   .btn-primary{
+        padding:10px;
+        border: 0;
+        box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
+        border-radius: 10px;
+	}
+         .btn-success{
+            background-color: #9933ff;
+            color: white;
+        }
+</style>
+    </h:head>  
+    <h:body>
+        <h:form id="form" class="form-horizontal" enctype="multipart/form-data">  
+            <div class="form-group">  
+                <div class="col-sm-4"></div>  
+                <div  class="col-sm-4">  
+                    <h2 style="text-align: center">Write Story</h2>  
+                </div>  
+            </div>  
+            <hr/>  
+            
+            <div class="form-group">  
+                <h:outputLabel for="title" class="control-label col-sm-4">Content Title</h:outputLabel>  
+                <div class="col-sm-4">  
+                    <h:inputText id="title-id" value="#{content.contentTitle}" class="form-control"  validatorMessage="Content title is required">  
+                    <f:validateRequired />  
+                    </h:inputText>  
+                </div>  
+            </div>  
+            
+                 
+            <div class="form-group">  
+                <h:outputLabel for="image" class="control-label col-sm-4">Cover: </h:outputLabel>  
+                <div class="col-sm-4">  
+                    <h:inputFile id="image-id" value="#{content.image}" class="form-control"></h:inputFile>
+                </div>  
+            </div> 
+
+            <div class="form-group">  
+                <h:outputLabel for="category" class="control-label col-sm-4">Article category: </h:outputLabel>  
+                <div class="col-sm-4">  
+                    <h:selectOneMenu value="#{content.categoryId}">
+                        <f:selectItem itemValue="1" itemLabel="Biography"/>
+                        <f:selectItem itemValue="2" itemLabel="Society"/>
+                        <f:selectItem itemValue="4" itemLabel="Business and Economics"/>
+                        <f:selectItem itemValue="3" itemLabel="Science-fiction"/>
+                        <f:selectItem itemValue="5" itemLabel="Life"/>
+                        <f:selectItem itemValue="6" itemLabel="Drama"/>
+                        <f:selectItem itemValue="7" itemLabel="Woman"/>
+                        <f:selectItem itemValue="8" itemLabel="Children"/>
+                        <f:selectItem itemValue="9" itemLabel="Romance"/>
+                        <f:selectItem itemValue="10" itemLabel="Horror"/>
+                        <f:selectItem itemValue="11" itemLabel="Tragedy"/>
+                        <f:selectItem itemValue="12" itemLabel="Suspence"/>
+                        <f:selectItem itemValue="13" itemLabel="Short story"/>
+                        <f:selectItem itemValue="14" itemLabel="Spiritual"/>
+                        <f:selectItem itemValue="15" itemLabel="Novel epicode"/>
+                        <f:selectItem itemValue="18" itemLabel="Travel"/>
+                        <f:selectItem itemValue="16" itemLabel="Motivational"/>
+                        <f:selectItem itemValue="21" itemLabel="Philosophy"/>
+                        <f:selectItem itemValue="22" itemLabel="Health"/>
+                        <f:selectItem itemValue="23" itemLabel="Cooking recipe"/>
+                        <f:selectItem itemValue="25" itemLabel="Film review"/>
+                        <f:selectItem itemValue="20" itemLabel="Human science"/>
+                        <f:selectItem itemValue="19" itemLabel="Adventure"/>
+                        <f:selectItem itemValue="17" itemLabel="Classic"/>
+                        <f:selectItem itemValue="24" itemLabel="Letter"/>
+                    </h:selectOneMenu>
+                </div>  
+            </div> 
+            
+             <div class="form-group">  
+                <h:outputLabel for="description" class="control-label col-sm-4">Description </h:outputLabel>  
+                <div class="col-sm-4">  
+                    
+                    <h:inputTextarea id="description-id" value="#{content.description}" class="form-control" rows="30">
+                        <f:validateRequired/>  
+                    </h:inputTextarea>
+                </div>  
+            </div> 
+            
+            
+            <div class="form-group">  
+                <div class="col-sm-4"></div>  
+                <div class="col-sm-4">  
+                    <div class="col-sm-2">  
+                        <h:commandButton value="Save" action="#{content.save_story()}" class="btn btn-success" style="width: 80px;"></h:commandButton> 
+                        <h:commandButton value="Save as Draft" action="#{content.save_draft_story(content.contentTitle,content.image,content.categoryId,content.description)}" style="width: 200px;"></h:commandButton> 
+                    </div> 
+                </div>  
+            </div>
+        </h:form>  
+    </h:body>  
+</html>
+

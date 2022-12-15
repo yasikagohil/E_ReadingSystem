@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Read</title>
+            <style type="text/css">  
+        table {  
+        border-collapse: collapse;  
+        width: 100%;  
+        } 
+        
+        input{
+        width:50%;
+        padding:10px;
+        border: 0;
+        box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
+        border-radius: 10px;
+        margin-right: 20px;
+	}
+        
+        th, td {  
+        text-align: left;  
+        padding: 8px;  
+        }  
+
+        tr:nth-child(even){background-color: #f2f2f2}  
+        th {  
+        background-color: #9933ff;  
+        color: white;  
+        }  
+        
+        .btn{
+            box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                        rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                        rgba(0, 0, 0, 0.12) 0px 1px 1px 0px, 
+                        rgb(84, 105, 212) 0px 0px 0px 1px, 
+                        rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                        rgba(0, 0, 0, 0) 0px 0px 0px 0px, 
+                        rgba(60, 66, 87, 0.08) 0px 2px 5px 0px;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 10px 20px;
+        }
+        
+        .btn-danger{
+            width:70%;
+            background-color: #ff0000;
+        }
+        
+        .btn-primary{
+            width: 20%;
+            color: black;
+        }
+        
+        .btn-success{
+            width: 20%;
+            color: black;
+        }
+        </style>  
+    </h:head>
+    <h:body>
+        <h:dataTable binding="#{table}" value="#{content.display()}" var="t" class="table table-striped table-hover table-bordered">  
+        
+            <h:column pt:style="width:50%">  
+                <!--<f:facet name="header">Title</f:facet>-->  
+                <h1><center><h:outputText value="#{t.title}"/>  </center></h1>
+            </h:column>
+            
+        </h:dataTable>
+        
+        <h:dataTable value="#{content.display()}" var="t" class="table table-striped table-hover table-bordered">  
+            <h:column pt:style="width:20%">  
+               <center>
+                   <h:graphicImage class="image" value="#{t.image}" height="200px" width="200px" alt="alt"></h:graphicImage> </center>
+           </h:column>
+        </h:dataTable>
+        
+        <h:dataTable value="#{content.display()}" var="t" class="table table-striped table-hover table-bordered">  
+        
+            <h:column pt:style="width:50%">  
+                 <h:form>
+                <!--<f:facet name="header">Description</f:facet>-->  
+                <h3><h:outputText value="#{t.description}"/>  </h3>
+
+                <h:commandButton action="#{content.like(t.contentId)}" value="Like" class="btn btn-primary"></h:commandButton>
+
+                <h:inputText id="title-id" value="#{comment.des}" class="form-control">  </h:inputText>
+
+                <h:commandButton action="#{comment.add(t.contentId,comment.des)}" value="Comment" class="btn btn-primary"></h:commandButton>
+                </h:form>
+            </h:column>
+        </h:dataTable>
+           
+        <h:dataTable binding="#{table1}" value="#{comment.getComments(16)}" var="c" class="table table-striped table-hover table-bordered">  
+            <f:facet name="header">Comments:</f:facet>      
+            <h:column>   
+                    <h3><h:outputText value="#{c.username}"/>  </h3>
+                    <h:outputText value="#{c.description}"/> 
+                </h:column>
+        </h:dataTable>
+    </h:body>
+</html>
+
